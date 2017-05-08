@@ -1,8 +1,6 @@
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import java.awt.*;
+import javax.swing.*;
+import java.applet.Applet;
 
 /**
  * Write a description of class Bug here.
@@ -14,16 +12,39 @@ public class Bug
 {
     /** description of instance variable x (add comment for each instance variable) */
     private int x,y;
-    private Picture pic;
+    private Image pic = getImage(getDocumentBase(), "images\\bug sprite.png");
 
     /**
      * Default constructor for objects of class Bug
      */
-    public Bug(int startX, int startY, Picture image)
+    public Bug(int startX, int startY)
     {
         x = startX;
         y = startY;
-        pic = image;
+    }
+    
+    /**
+     * get Image method
+     */
+    public Image getImage()
+    {
+        return pic;
+    }
+    
+    /**
+     * get coord method
+     */
+    public int getX()
+    {
+        return x;
+    }
+    
+    /**
+     * get coord method
+     */
+    public int getY()
+    {
+        return y;
     }
 
     

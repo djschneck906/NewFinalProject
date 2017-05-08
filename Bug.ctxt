@@ -1,5 +1,14 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Bug()
+comment0.params=startX\ startY
+comment0.target=Bug(int,\ int)
 comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Bug\r\n
-numComments=1
+comment1.params=
+comment1.target=Picture\ getImage()
+comment1.text=\r\n\ get\ Image\ method\r\n
+comment2.params=
+comment2.target=int\ getX()
+comment2.text=\r\n\ get\ coord\ method\r\n
+comment3.params=
+comment3.target=int\ getY()
+comment3.text=\r\n\ get\ coord\ method\r\n
+numComments=4

@@ -11,6 +11,8 @@ public class MazeViewer extends JFrame
     private static final int APPLET_WIDTH = 720;
     private static final int APPLET_HEIGHT = 680;
     
+    Bug Hayes = new Bug (50, 50);
+    
     /**
      * This method is the first thing to run and it runs automatically (only one time).
      * init() sets up the applet, sets the hieght, and creates some objects to be used
@@ -18,8 +20,8 @@ public class MazeViewer extends JFrame
     public void init()
     {
         setSize(APPLET_WIDTH,APPLET_HEIGHT);
-        printTitleScreen();
-        
+        //printTitleScreen();
+        //Bug Hayes = new Bug (50, 50);
         //Maze maze1 = new Maze();
         //Maze maze2 = new Maze();
         //Maze maze3 = new Maze();
@@ -44,7 +46,7 @@ public class MazeViewer extends JFrame
      */
     public void paint(Graphics g)
     {
-        
+        g.drawImage(Hayes.getImage(), Hayes.getX(), Hayes.getY(), this);
     }
     
     public void playLevel(Maze maze, Graphics g)
