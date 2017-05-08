@@ -13,14 +13,17 @@ import javax.swing.JPanel;
 public class Bug 
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int x, y;
+    private int x,y;
+    private Picture pic;
 
     /**
      * Default constructor for objects of class Bug
      */
-    public Bug()
+    public Bug(int startX, int startY, Picture image)
     {
-        
+        x = startX;
+        y = startY;
+        pic = image;
     }
 
     

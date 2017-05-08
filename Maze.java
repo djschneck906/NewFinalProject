@@ -10,9 +10,9 @@ public class Maze
     /**
      * Default constructor for objects of class Maze
      */
-    public Maze()
+    public Maze(ArrayList<Wall> wall)
     {
-        
+        walls = wall;
     }
 
 }
