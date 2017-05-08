@@ -6,7 +6,7 @@ import java.applet.Applet;
 /**
  * Class MazeViewer - Runs Applet
  */
-public class MazeViewer extends JApplet
+public class MazeViewer extends JFrame
 {
     private static final int APPLET_WIDTH = 720;
     private static final int APPLET_HEIGHT = 680;
