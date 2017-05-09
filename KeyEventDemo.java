@@ -66,7 +66,7 @@ public class KeyEventDemo extends JFrame
             ex.printStackTrace();
         }
         /* Turn off metal's use of bold fonts */
-        UIManager.put("swing.boldMetal", Boolean.FALSE);
+        //UIManager.put("swing.boldMetal", Boolean.FALSE);
          
         //Schedule a job for event dispatch thread:
         //creating and showing this application's GUI.

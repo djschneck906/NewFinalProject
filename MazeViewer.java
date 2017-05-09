@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 /**
  * Class MazeViewer - Runs Applet
  */
-public class MazeViewer extends JFrame
+public class MazeViewer extends JFrame 
 {
     private static final int APPLET_WIDTH = 720;
     private static final int APPLET_HEIGHT = 680;
