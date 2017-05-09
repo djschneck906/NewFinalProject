@@ -3,6 +3,9 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
 
 /**
  * Write a description of class keyListener here.
@@ -61,9 +64,40 @@ public class keyListener extends JFrame implements KeyListener
             System.out.println("Left key Released");
         }
     }
+    
+    public static void main(String[] args) {
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KeyEventDispatcher() {
 
+            @Override
+            public boolean dispatchKeyEvent(KeyEvent ke) {
+                synchronized (IsKeyPressed.class) {
+                    switch (ke.getID()) {
+                    case KeyEvent.KEY_PRESSED:
+                        if (ke.getKeyCode() == KeyEvent.VK_W) {
+                            wPressed = true;
+                        }
+                        break;
+
+                    case KeyEvent.KEY_RELEASED:
+                        if (ke.getKeyCode() == KeyEvent.VK_W) {
+                            wPressed = false;
+                        }
+                        break;
+                    }
+                    return false;
+                }
+            }
+        
+;
+});
+/*
     public static void main(String[] args) {
         new keyListener("Key Listener Tester");
+        Scanner keys = new Scanner(System.in);
+        
+        KeyEvent press = keys.next();
+        keyPressed(press);
     }
-
+*/
+}
 }

@@ -2,6 +2,14 @@
 import java.awt.*;
 import javax.swing.*;
 import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 /**
  * Class MazeViewer - Runs Applet
@@ -25,6 +33,14 @@ public class MazeViewer extends JFrame
         //Maze maze1 = new Maze();
         //Maze maze2 = new Maze();
         //Maze maze3 = new Maze();
+        
+        
+        BufferedImage myPicture = ImageIO.read(new File("images\\buyg sprite.png"));
+        JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+        picLabel.setBounds(100, 100, 100, 100);
+        add(picLabel);
+        
+        
     }
 
     /** 
@@ -46,7 +62,7 @@ public class MazeViewer extends JFrame
      */
     public void paint(Graphics g)
     {
-        g.drawImage(Hayes.getImage(), Hayes.getX(), Hayes.getY(), this);
+        //g.drawImage(Hayes.getImage(), Hayes.getX(), Hayes.getY(), this);
     }
     
     public void playLevel(Maze maze, Graphics g)

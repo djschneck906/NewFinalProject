@@ -1,6 +1,6 @@
+import java.lang.Object;
 import java.awt.*;
 import javax.swing.*;
-import java.applet.Applet;
 
 /**
  * Write a description of class Bug here.
@@ -11,8 +11,7 @@ import java.applet.Applet;
 public class Bug 
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int x,y;
-    private Image pic = getImage(getDocumentBase(), "images\\bug sprite.png");
+    private int x,y;    
 
     /**
      * Default constructor for objects of class Bug
@@ -22,14 +21,7 @@ public class Bug
         x = startX;
         y = startY;
     }
-    
-    /**
-     * get Image method
-     */
-    public Image getImage()
-    {
-        return pic;
-    }
+
     
     /**
      * get coord method
