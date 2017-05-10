@@ -1,18 +1,14 @@
-import java.lang.Object;
 import java.awt.*;
 import javax.swing.*;
+import java.applet.*;
+import java.awt.event.*;
 
-/**
- * Write a description of class Bug here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Bug 
+public class Bug
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int x,y;    
-
+    private int x,y;
+    
+    
     /**
      * Default constructor for objects of class Bug
      */
@@ -22,6 +18,15 @@ public class Bug
         y = startY;
     }
 
+    public void moveX(int value)
+    {
+        x+=value;
+    }
+    
+    public void moveY(int value)
+    {
+        y+=value;
+    }
     
     /**
      * get coord method
