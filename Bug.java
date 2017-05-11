@@ -6,7 +6,7 @@ import java.awt.event.*;
 public class Bug
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int x,y;
+    private int x,y, speed;
     
     
     /**
@@ -16,11 +16,20 @@ public class Bug
     {
         x = startX;
         y = startY;
+        speed = 3;
     }
 
     public void moveX(int value)
     {
         x+=value;
+    }
+    
+    public int getSpeed(){
+        return speed;
+    }
+    
+    public void setSpeed(int newSpeed){
+        speed = newSpeed;
     }
     
     public void moveY(int value)
