@@ -28,6 +28,10 @@ public class Bug
         return speed;
     }
     
+    public void setSpeed(int newSpeed){
+        speed = newSpeed;
+    }
+    
     public void moveY(int value)
     {
         y+=value;

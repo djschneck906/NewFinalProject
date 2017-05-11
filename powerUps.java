@@ -9,32 +9,20 @@
 public class powerUps
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int x;
+    private int modifier, cX, cY;
 
     /**
      * Default constructor for objects of class powerUps
      */
-    public powerUps()
+    public powerUps(int modifierSpeed)
     {
-        // initialise instance variables
-        x = 0;
+        modifier = modifierSpeed;        
     }
+    
+    public void changeSpeed(Bug hayes){
+        hayes.setSpeed(hayes.getSpeed()+ modifier);
+           
 
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x+y;
     }
-
+    
 }
