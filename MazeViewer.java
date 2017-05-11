@@ -10,12 +10,13 @@ import java.awt.event.*;
  */
 public class MazeViewer extends Applet implements KeyListener
 {
-    private static final int APPLET_WIDTH = 720;
-    private static final int APPLET_HEIGHT = 680;
+    private static final int APPLET_WIDTH = 800;
+    private static final int APPLET_HEIGHT = 500;
     Image bugPic;
     Bug hayes;
     int level = 1;
     Maze maze1;
+    Maze[] mazes;
     
     /**
      * This method is the first thing to run and it runs automatically (only one time).
@@ -25,7 +26,6 @@ public class MazeViewer extends Applet implements KeyListener
     {
         setSize(APPLET_WIDTH,APPLET_HEIGHT);
         bugPic = getImage(getDocumentBase(),("bugSprite.png"));
-        //printTitleScreen();
         Wall m1w1 = new Wall(100,200,100,200);
         Wall[] m1Walls = {m1w1};
         maze1 = new Maze(m1Walls,50,50,500,550,500,550);
@@ -35,6 +35,8 @@ public class MazeViewer extends Applet implements KeyListener
         setFocusable(true);
         requestFocusInWindow();
         hayes = new Bug (50, 50);
+        
+        //printTitleScreen();
         
     }
     
@@ -92,7 +94,7 @@ public class MazeViewer extends Applet implements KeyListener
     public void playLevel(Graphics g, Maze m)
     {
         //g.MazeObject.paintBackground();
-        //g.MazeObject.paintObsticles();
+        m.paintWalls(g);
         g.drawImage(bugPic, hayes.getX(), hayes.getY(), this);
 
         if(checkCollision(m))
@@ -113,8 +115,8 @@ public class MazeViewer extends Applet implements KeyListener
         
         for (Wall obsticle : walls)
         {
-            if (hayes.getX() >= obsticle.getLeft() && hayes.getX() <= obsticle.getRight() 
-                && hayes.getY()>= obsticle.getTop() && hayes.getY() <= obsticle.getBottom())
+            if (hayes.getX()+11 >= obsticle.getLeft() && hayes.getX()+11 <= obsticle.getRight() 
+                && hayes.getY()+12>= obsticle.getTop() && hayes.getY()+12 <= obsticle.getBottom())
                 {
                     return true;
                 }

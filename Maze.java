@@ -1,4 +1,5 @@
 import java.util.*;
+import java.awt.*;
 
 /**
  * 
@@ -25,6 +26,17 @@ public class Maze
         endXRight = eXR;
         endYTop = eYT;
         endYBottom = eYB;
+    }
+    
+    public void paintWalls(Graphics g)
+    {
+        for (Wall obsticle : walls)
+        {
+            g.setColor(Color.black);
+            g.fillRect(obsticle.getLeft(),obsticle.getTop(),
+                       obsticle.getRight()-obsticle.getLeft(), 
+                       obsticle.getBottom()-obsticle.getTop());
+        }
     }
     
     public Wall[] getWalls()
