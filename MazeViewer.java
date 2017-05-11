@@ -14,8 +14,8 @@ public class MazeViewer extends Applet implements KeyListener
     private static final int APPLET_HEIGHT = 500;
     Image bugPic;
     Bug hayes;
-    int level = 1;
-    Maze maze1;
+    int level = 0;
+    Maze maze1, maze2;
     Maze[] mazes;
     
     /**
@@ -26,15 +26,24 @@ public class MazeViewer extends Applet implements KeyListener
     {
         setSize(APPLET_WIDTH,APPLET_HEIGHT);
         bugPic = getImage(getDocumentBase(),("bugSprite.png"));
+        
+        
         Wall m1w1 = new Wall(100,200,100,200);
         Wall[] m1Walls = {m1w1};
         maze1 = new Maze(m1Walls,50,50,500,550,500,550);
-        //Maze maze2 = new Maze();
+        
+        Wall m2w1 = new Wall(200,250,100,125);
+        Wall[] m2Walls = {m2w1};
+        maze2 = new Maze(m2Walls,100,100,500,550,500,550);
+        
         //Maze maze3 = new Maze();
+        
+        mazes = new Maze[]{maze1,maze2};
+        
         addKeyListener(this);
         setFocusable(true);
         requestFocusInWindow();
-        hayes = new Bug (50, 50);
+        hayes = new Bug (mazes[0].getStartX(), mazes[0].getStartX());
         
         //printTitleScreen();
         
@@ -50,16 +59,16 @@ public class MazeViewer extends Applet implements KeyListener
         {
            switch (e.getKeyCode()) {
                 case KeyEvent.VK_LEFT:
-                    hayes.moveX(-3);
+                    hayes.moveX(-hayes.getSpeed());
                     break;
                 case KeyEvent.VK_RIGHT:
-                    hayes.moveX(3);
+                    hayes.moveX(hayes.getSpeed());
                     break;
                 case KeyEvent.VK_DOWN:
-                    hayes.moveY(3);
+                    hayes.moveY(hayes.getSpeed());
                     break;
                 case KeyEvent.VK_UP:
-                    hayes.moveY(-3);
+                    hayes.moveY(-hayes.getSpeed());
                     break;
            }
         }
@@ -78,37 +87,24 @@ public class MazeViewer extends Applet implements KeyListener
      */
     public void paint(Graphics g)
     {
-        switch (level)
-        {
-            case 1:
-                playLevel(g,maze1);
-                break;
-            case 2:
-                //playLevel(g,maze2);
-                break;
-        }
-        
-       
-    }
-
-    public void playLevel(Graphics g, Maze m)
-    {
         //g.MazeObject.paintBackground();
-        m.paintWalls(g);
+        mazes[level].paintWalls(g);
         g.drawImage(bugPic, hayes.getX(), hayes.getY(), this);
 
-        if(checkCollision(m))
+        if(checkCollision(mazes[level]))
         {
-            hayes.setX(m.getStartX());
-            hayes.setY(m.getStartY());
+            hayes.setX(mazes[level].getStartX());
+            hayes.setY(mazes[level].getStartY());
         }
         
-        if (checkCompletion(m))
+        if (checkCompletion(mazes[level]))
         {
             level+=1;
+            hayes.setX(mazes[level].getStartX());
+            hayes.setY(mazes[level].getStartY());
         }
     }
-    
+
     public boolean checkCollision(Maze m)
     {
         Wall[] walls = m.getWalls();
