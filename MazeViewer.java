@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.applet.*;
 import java.awt.event.*;
 
+
 /**
  * Class MazeViewer - Runs Applet
  */
@@ -14,6 +15,7 @@ public class MazeViewer extends Applet implements KeyListener
     Image bugPic;
     Bug hayes;
     int level = 1;
+    Maze maze1;
     
     /**
      * This method is the first thing to run and it runs automatically (only one time).
@@ -24,7 +26,9 @@ public class MazeViewer extends Applet implements KeyListener
         setSize(APPLET_WIDTH,APPLET_HEIGHT);
         bugPic = getImage(getDocumentBase(),("bugSprite.png"));
         //printTitleScreen();
-        //Maze maze1 = new Maze();
+        Wall m1w1 = new Wall(100,200,100,200);
+        Wall[] m1Walls = {m1w1};
+        maze1 = new Maze(m1Walls,50,50,500,550,500,550);
         //Maze maze2 = new Maze();
         //Maze maze3 = new Maze();
         addKeyListener(this);
@@ -78,10 +82,11 @@ public class MazeViewer extends Applet implements KeyListener
                 playLevel(g,maze1);
                 break;
             case 2:
-                playLevel(g,maze2);
+                //playLevel(g,maze2);
                 break;
         }
         
+       
     }
 
     public void playLevel(Graphics g, Maze m)
@@ -90,12 +95,46 @@ public class MazeViewer extends Applet implements KeyListener
         //g.MazeObject.paintObsticles();
         g.drawImage(bugPic, hayes.getX(), hayes.getY(), this);
 
-        //use collision dector to see if collision
-        // see if completed
-
-        //if collision - move back to start
-        //if completed - base case - back to paint
+        if(checkCollision(m))
+        {
+            hayes.setX(m.getStartX());
+            hayes.setY(m.getStartY());
+        }
+        
+        if (checkCompletion(m))
+        {
+            level+=1;
+        }
     }
+    
+    public boolean checkCollision(Maze m)
+    {
+        Wall[] walls = m.getWalls();
+        
+        for (Wall obsticle : walls)
+        {
+            if (hayes.getX() >= obsticle.getLeft() && hayes.getX() <= obsticle.getRight() 
+                && hayes.getY()>= obsticle.getTop() && hayes.getY() <= obsticle.getBottom())
+                {
+                    return true;
+                }
+        }
+        
+        return false;
+    }
+    
+    
+    public boolean checkCompletion(Maze m)
+    {
+        if (hayes.getX() > m.getEndLeft() && hayes.getX() < m.getEndRight() 
+                && hayes.getY()> m.getEndTop() && hayes.getY() < m.getEndBottom())
+                {
+                    return true;
+                }
+        
+        return false;
+    }
+    
     
     /**
      * Called by the browser or applet viewer to inform this JApplet that

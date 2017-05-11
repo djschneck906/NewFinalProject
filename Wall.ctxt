@@ -1,5 +1,13 @@
 #BlueJ class context
-comment0.params=left\ right\ top\ bottom\ pic
-comment0.target=Wall(int,\ int,\ int,\ int,\ java.awt.Image)
+comment0.params=left\ right\ top\ bottom
+comment0.target=Wall(int,\ int,\ int,\ int)
 comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Wall\r\n
-numComments=1
+comment1.params=
+comment1.target=int\ getLeft()
+comment2.params=
+comment2.target=int\ getRight()
+comment3.params=
+comment3.target=int\ getTop()
+comment4.params=
+comment4.target=int\ getBottom()
+numComments=5
