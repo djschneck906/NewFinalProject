@@ -13,12 +13,12 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
 public class Wall
 {
     private int lx, rx, ty, by;
-    private Picture image;
+    private Image image;
     
     /**
      * Default constructor for objects of class Wall
      */
-    public Wall(int left, int right, int top, int bottom, Picture pic)
+    public Wall(int left, int right, int top, int bottom, Image pic)
     {
         lx = left;
         rx = right;

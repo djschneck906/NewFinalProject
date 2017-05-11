@@ -1,2 +1,5 @@
 #BlueJ class context
-numComments=0
+comment0.params=left\ right\ top\ bottom\ pic
+comment0.target=Wall(int,\ int,\ int,\ int,\ java.awt.Image)
+comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Wall\r\n
+numComments=1

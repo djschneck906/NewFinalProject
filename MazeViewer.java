@@ -1,13 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.Graphics;
-//import java.awt.image.BufferedImage;
-//import java.io.File;
-//import java.io.IOException;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
-//import javax.imageio.ImageIO;
-//import javax.swing.JPanel;
 import java.applet.*;
 import java.awt.event.*;
 
@@ -20,6 +13,7 @@ public class MazeViewer extends Applet implements KeyListener
     private static final int APPLET_HEIGHT = 680;
     Image bugPic;
     Bug hayes;
+    int level = 1;
     
     /**
      * This method is the first thing to run and it runs automatically (only one time).
@@ -29,17 +23,15 @@ public class MazeViewer extends Applet implements KeyListener
     {
         setSize(APPLET_WIDTH,APPLET_HEIGHT);
         bugPic = getImage(getDocumentBase(),("bugSprite.png"));
-        hayes = new Bug (50, 50);
         //printTitleScreen();
-        //Bug Hayes = new Bug (50, 50);
         //Maze maze1 = new Maze();
         //Maze maze2 = new Maze();
         //Maze maze3 = new Maze();
         addKeyListener(this);
         setFocusable(true);
         requestFocusInWindow();
-
-
+        hayes = new Bug (50, 50);
+        
     }
     
      public void keyTyped(KeyEvent e) {
@@ -47,19 +39,23 @@ public class MazeViewer extends Applet implements KeyListener
     }
     
      public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_LEFT:
-                hayes.moveX(-5);
-                break;
-            case KeyEvent.VK_RIGHT:
-                hayes.moveX(5);
-                break;
-            case KeyEvent.VK_DOWN:
-                hayes.moveY(5);
-                break;
-            case KeyEvent.VK_UP:
-                hayes.moveY(-5);
-                break;
+        
+        if (hayes != null)
+        {
+           switch (e.getKeyCode()) {
+                case KeyEvent.VK_LEFT:
+                    hayes.moveX(-3);
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    hayes.moveX(3);
+                    break;
+                case KeyEvent.VK_DOWN:
+                    hayes.moveY(3);
+                    break;
+                case KeyEvent.VK_UP:
+                    hayes.moveY(-3);
+                    break;
+           }
         }
         repaint();
     }
@@ -76,24 +72,29 @@ public class MazeViewer extends Applet implements KeyListener
      */
     public void paint(Graphics g)
     {
-        g.drawImage(bugPic, hayes.getX(), hayes.getY(), this);
+        switch (level)
+        {
+            case 1:
+                playLevel(g,maze1);
+                break;
+            case 2:
+                playLevel(g,maze2);
+                break;
+        }
+        
     }
 
-    public void playLevel(Maze maze, Graphics g)
+    public void playLevel(Graphics g, Maze m)
     {
         //g.MazeObject.paintBackground();
         //g.MazeObject.paintObsticles();
-        //g.BugObject.paintObject();
+        g.drawImage(bugPic, hayes.getX(), hayes.getY(), this);
 
-        //use keylistener to check to see if bug moves
         //use collision dector to see if collision
         // see if completed
 
         //if collision - move back to start
         //if completed - base case - back to paint
-
-        //else
-        playLevel(maze,g);
     }
     
     /**
@@ -110,9 +111,6 @@ public class MazeViewer extends Applet implements KeyListener
 }
 
 
-        //BufferedImage myPicture = ImageIO.read(new File("images\\buyg sprite.png"));
-        //JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-        //picLabel.setBounds(100, 100, 100, 100);
-        //add(picLabel);
+        
 
 
