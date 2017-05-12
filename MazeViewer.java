@@ -12,10 +12,11 @@ public class MazeViewer extends Applet implements KeyListener
 {
     private static final int APPLET_WIDTH = 800;
     private static final int APPLET_HEIGHT = 500;
-    Image bugPic, maze1Pic, maze2Pic;
+    Image bugPic, maze1Pic, maze2Pic,maze3Pic;
     Bug hayes;
     int level = 0;
-    Wall m1w1, m1w2, m1w3, m1w4, m1w5, m1w6, m1w7, m1w8, m1w9, m1w10, m1w11, m1w12, m1w13, m1w14;
+    Wall m1w1, m1w2, m1w3, m1w4, m1w5, m1w6, m1w7, m1w8, m1w9, m1w10, m1w11, m1w12, m1w13, m1w14,
+         m1w15,m1w16,m1w17,m1w18,m1w19,m1w20,m1w21,m1w22,m1w23,m124,m1w25;
     Maze maze1, maze2;
     Maze[] mazes;
     
@@ -27,21 +28,38 @@ public class MazeViewer extends Applet implements KeyListener
     {
         setSize(APPLET_WIDTH,APPLET_HEIGHT);
         bugPic = getImage(getDocumentBase(),("bugSprite.png"));
+        
+        
         maze1Pic = getImage(getDocumentBase(),("maze 1.png"));
-        maze2Pic = getImage(getDocumentBase(),("background.png"));
+        maze3Pic = getImage(getDocumentBase(),("background.png"));
         
-        m1w1 = new Wall(66,25,734,28);
-        m1w2 = new Wall(105,28,108,67);
-        m1w3 = new Wall(142,67,178,69);
-        m1w4 = new Wall(105,104,108,177);
-        m1w5 = new Wall(4,3,795,3);
-        m1w6 = new Wall(4,3,4,495);
-        m1w7 = new Wall(63,6,65,67);
-        m1w8 = new Wall(63,105,65,492);
-        m1w9 = new Wall(4,493,795,495);
-        
-        Wall[] m1Walls = {m1w1,m1w2,m1w3,m1w4,m1w5,m1w6,m1w7,m1w8,m1w9};
-        maze1 = new Maze(m1Walls,10,10,500,550,500,550,maze1Pic);
+        m3w1 = new Wall(66,25,734,28);
+        m3w2 = new Wall(105,28,108,67);
+        m3w3 = new Wall(142,67,178,69);
+        m3w4 = new Wall(105,104,108,177);
+        m3w5 = new Wall(4,3,795,3);
+        m3w6 = new Wall(4,3,4,495);
+        m3w7 = new Wall(63,6,65,67);
+        m3w8 = new Wall(63,105,65,492);
+        m3w9 = new Wall(4,493,795,495);
+        m3w10 = new Wall(105,104,141,106);
+        m3w11 = new Wall(66,215,141,217);
+        m3w12 = new Wall(142,215,144,250);
+        m3w13 = new Wall(105,251,107,324);
+        m3w14 = new Wall(105,325,141,328);
+        m3w15 = new Wall(142,325,144,362);
+        m3w16 = new Wall(142,363,178,365);
+        m3w17 = new Wall(179,363,181,436);
+        m3w18 = new Wall(142,437,253,439);
+        m3w19 = new Wall(66,363,107,366);
+        m3w20 = new Wall(105,366,107,435);
+        m3w21 = new Wall(107,400,141,402);
+        m3w22 = new Wall(734,6,737,437);
+        m32w23 = new Wall(216,28,219,104);
+
+        Wall[] m3Walls = {m1w1,m1w2,m1w3,m1w4,m1w5,m1w6,m1w7,m1w8,m1w9,m1w10,m1w11,m1w12,m1w13,
+                          m1w14,m1w15,m1w16,m1w17,m1w18};
+        maze3 = new Maze(m3Walls,10,10,500,550,500,550,maze3Pic);
         
         Wall m2w1 = new Wall(200,250,100,125);
         Wall[] m2Walls = {m2w1};
@@ -49,7 +67,7 @@ public class MazeViewer extends Applet implements KeyListener
         
         //Maze maze3 = new Maze();
         
-        mazes = new Maze[]{maze1,maze2};
+        mazes = new Maze[]{maze3,maze2};
         
         addKeyListener(this);
         setFocusable(true);
