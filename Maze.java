@@ -13,11 +13,12 @@ public class Maze
     int endXRight;
     int endYTop;
     int endYBottom;
+    Image mazePic;
 
     /**
      * Default constructor for objects of class Maze
      */
-    public Maze(Wall[] wall, int sX, int sY,int eXL, int eXR, int eYT, int eYB)
+    public Maze(Wall[] wall, int sX, int sY,int eXL, int eXR, int eYT, int eYB, Image pic)
     {
         walls = wall;
         startX = sX;
@@ -26,6 +27,12 @@ public class Maze
         endXRight = eXR;
         endYTop = eYT;
         endYBottom = eYB;
+        mazePic = pic;
+    }
+    
+    public Image getMazePic()
+    {
+        return mazePic;
     }
     
     public void paintWalls(Graphics g)

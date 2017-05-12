@@ -12,7 +12,7 @@ public class MazeViewer extends Applet implements KeyListener
 {
     private static final int APPLET_WIDTH = 800;
     private static final int APPLET_HEIGHT = 500;
-    Image bugPic;
+    Image bugPic, maze1Pic, maze2Pic;
     Bug hayes;
     int level = 0;
     Maze maze1, maze2;
@@ -26,15 +26,16 @@ public class MazeViewer extends Applet implements KeyListener
     {
         setSize(APPLET_WIDTH,APPLET_HEIGHT);
         bugPic = getImage(getDocumentBase(),("bugSprite.png"));
-        
+        maze1Pic = getImage(getDocumentBase(),("maze 1.png"));
+        maze2Pic = getImage(getDocumentBase(),("background.png"));
         
         Wall m1w1 = new Wall(100,200,100,200);
         Wall[] m1Walls = {m1w1};
-        maze1 = new Maze(m1Walls,50,50,500,550,500,550);
+        maze1 = new Maze(m1Walls,50,50,500,550,500,550,maze1Pic);
         
         Wall m2w1 = new Wall(200,250,100,125);
         Wall[] m2Walls = {m2w1};
-        maze2 = new Maze(m2Walls,100,100,500,550,500,550);
+        maze2 = new Maze(m2Walls,100,100,500,550,500,550,maze2Pic);
         
         //Maze maze3 = new Maze();
         
@@ -87,8 +88,7 @@ public class MazeViewer extends Applet implements KeyListener
      */
     public void paint(Graphics g)
     {
-        //g.MazeObject.paintBackground();
-        mazes[level].paintWalls(g);
+        g.drawImage(mazes[level].getMazePic(),0,0,this);
         g.drawImage(bugPic, hayes.getX(), hayes.getY(), this);
 
         if(checkCollision(mazes[level]))
