@@ -39,7 +39,7 @@ public class Maze
     {
         for (Wall obsticle : walls)
         {
-            g.setColor(Color.black);
+            g.setColor(Color.red);
             g.fillRect(obsticle.getLeft(),obsticle.getTop(),
                        obsticle.getRight()-obsticle.getLeft(), 
                        obsticle.getBottom()-obsticle.getTop());

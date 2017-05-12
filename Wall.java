@@ -17,7 +17,7 @@ public class Wall
     /**
      * Default constructor for objects of class Wall
      */
-    public Wall(int left, int right, int top, int bottom)
+    public Wall(int left, int top, int right, int bottom)
     {
         lx = left;
         rx = right;

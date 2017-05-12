@@ -29,9 +29,14 @@ public class MazeViewer extends Applet implements KeyListener
         maze1Pic = getImage(getDocumentBase(),("maze 1.png"));
         maze2Pic = getImage(getDocumentBase(),("background.png"));
         
-        Wall m1w1 = new Wall(100,200,100,200);
-        Wall[] m1Walls = {m1w1};
-        maze1 = new Maze(m1Walls,50,50,500,550,500,550,maze1Pic);
+        Wall m1w1 = new Wall(66,25,734,28);
+        Wall m1w2 = new Wall(105,28,108,67);
+        Wall m1w3 = new Wall(142,67,178,69);
+        Wall m1w4 = new Wall(105,104,108,177);
+        
+        
+        Wall[] m1Walls = {m1w1,m1w2,m1w3,m1w4};
+        maze1 = new Maze(m1Walls,10,10,500,550,500,550,maze1Pic);
         
         Wall m2w1 = new Wall(200,250,100,125);
         Wall[] m2Walls = {m2w1};
@@ -90,6 +95,7 @@ public class MazeViewer extends Applet implements KeyListener
     {
         g.drawImage(mazes[level].getMazePic(),0,0,this);
         g.drawImage(bugPic, hayes.getX(), hayes.getY(), this);
+        mazes[level].paintWalls(g);
 
         if(checkCollision(mazes[level]))
         {
