@@ -15,10 +15,15 @@ public class MazeViewer extends Applet implements KeyListener
     Image bugPic, maze1Pic, maze2Pic,maze3Pic;
     Bug hayes;
     int level = 0;
-    Wall m1w1, m1w2, m1w3, m1w4, m1w5, m1w6, m1w7, m1w8, m1w9, m1w10, m1w11, m1w12, m1w13, m1w14,
-         m1w15,m1w16,m1w17,m1w18,m1w19,m1w20,m1w21,m1w22,m1w23,m124,m1w25;
-    Maze maze1, maze2;
+    Wall m3w1, m3w2, m3w3, m3w4, m3w5, m3w6, m3w7, m3w8, m3w9, m3w10, 
+    m3w11, m3w12, m3w13, m3w14, m3w15, m3w16, m3w17, m3w18, m3w19, m3w20, 
+    m3w21, m3w22, m3w23, m3w24, m3w25, m3w26, m3w27, m3w28, m3w29, m3w30, 
+    m3w31, m3w32, m3w33, m3w34, m3w35, m3w36, m3w37, m3w38, m3w39, m3w40, 
+    m3w41, m3w42, m3w43, m3w44, m3w45, m3w46, m3w47, m3w48, m3w49, m3w50;
+    
+    Maze maze1, maze2, maze3;
     Maze[] mazes;
+    Wall[] m1Walls,m2Walls,m3Walls;
     
     /**
      * This method is the first thing to run and it runs automatically (only one time).
@@ -30,8 +35,8 @@ public class MazeViewer extends Applet implements KeyListener
         bugPic = getImage(getDocumentBase(),("bugSprite.png"));
         
         
-        maze1Pic = getImage(getDocumentBase(),("maze 1.png"));
-        maze3Pic = getImage(getDocumentBase(),("background.png"));
+        maze3Pic = getImage(getDocumentBase(),("maze 1.png"));
+        
         
         m3w1 = new Wall(66,25,734,28);
         m3w2 = new Wall(105,28,108,67);
@@ -55,10 +60,12 @@ public class MazeViewer extends Applet implements KeyListener
         m3w20 = new Wall(105,366,107,435);
         m3w21 = new Wall(107,400,141,402);
         m3w22 = new Wall(734,6,737,437);
-        m32w23 = new Wall(216,28,219,104);
+        m3w23 = new Wall(216,28,219,104);
 
-        Wall[] m3Walls = {m1w1,m1w2,m1w3,m1w4,m1w5,m1w6,m1w7,m1w8,m1w9,m1w10,m1w11,m1w12,m1w13,
-                          m1w14,m1w15,m1w16,m1w17,m1w18};
+        Wall [] m3Walls = {m3w1, m3w2, m3w3, m3w4, m3w5, m3w6, m3w7, m3w8, m3w9, m3w10, 
+                          m3w11, m3w12, m3w13, m3w14, m3w15, m3w16, m3w17, m3w18, m3w19, m3w20, 
+                          m3w21};
+                          
         maze3 = new Maze(m3Walls,10,10,500,550,500,550,maze3Pic);
         
         Wall m2w1 = new Wall(200,250,100,125);
