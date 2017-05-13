@@ -72,11 +72,19 @@ public class MazeViewer extends Applet implements KeyListener
         m3w35 = new Wall(512, 251, 515, 365);
         m3w36 = new Wall(401, 325, 512, 328);
         m3w37 = new Wall(549, 325, 551, 363);
+        m3w38 = new Wall(326, 400, 330, 434);
+        m3w39 = new Wall(437, 328, 441, 363);
+        m3w40 = new Wall(327, 362, 441, 365);
+        m3w41 = new Wall(363, 365, 367, 436);
+        m3w42 = new Wall(327, 325, 330, 364);
+        m3w43 = new Wall(253, 326, 256, 439);
+        m3w44 = new Wall(216, 363, 253, 365);
+        m3w45 = new Wall(216, 363, 219, 399);
         
         Wall [] m3Walls = {m3w1, m3w2, m3w3, m3w4, m3w5, m3w6, m3w7, m3w8, m3w9, m3w10, 
                           m3w11, m3w12, m3w13, m3w14, m3w15, m3w16, m3w17, m3w18, m3w19, m3w20, 
                           m3w21, m3w22, m3w23, m3w24, m3w25, m3w26, m3w27, m3w28, m3w29, m3w30, m3w31, m3w32, 
-                          m3w33, m3w34, m3w35, m3w36, m3w37};
+                          m3w33, m3w34, m3w35, m3w36, m3w37, m3w38, m3w39, m3w40, m3w41, m3w42, m3w43, m3w44, m3w45};
                           
         maze3 = new Maze(m3Walls,10,10,500,550,500,550,maze3Pic);
         
