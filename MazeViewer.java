@@ -8,7 +8,7 @@ import java.awt.event.*;
 /**
  * Class MazeViewer - Runs Applet
  */
-public class MazeViewer extends Applet implements KeyListener
+public class MazeViewer extends Applet implements KeyListener 
 {
     private static final int APPLET_WIDTH = 800;
     private static final int APPLET_HEIGHT = 500;
@@ -128,6 +128,13 @@ public class MazeViewer extends Applet implements KeyListener
                     break;
            }
         }
+        
+        //try {
+        //    Thread.sleep(200);
+        //} catch(InterruptedException ex) {         for some reason if you run this you can
+        //    Thread.currentThread().interrupt();   move like 3 times then the game stops moving at all
+        // }
+        
         repaint();
     }
     
@@ -158,7 +165,8 @@ public class MazeViewer extends Applet implements KeyListener
             level+=1;
             hayes.setX(mazes[level].getStartX());
             hayes.setY(mazes[level].getStartY());
-        }
+        }        
+        
     }
 
     public boolean checkCollision(Maze m)
