@@ -32,12 +32,9 @@ public class MazeViewer extends Applet implements KeyListener
     public void init()
     {
         setSize(APPLET_WIDTH,APPLET_HEIGHT);
-        bugPic = getImage(getDocumentBase(),("bugSprite.png"));
-        
-        
-        maze3Pic = getImage(getDocumentBase(),("maze 1.png"));
-        
-        
+        bugPic = getImage(getDocumentBase(),("bugSprite.png"));               
+        maze3Pic = getImage(getDocumentBase(),("maze 3.png"));
+                
         m3w1 = new Wall(66,25,734,28);
         m3w2 = new Wall(105,28,108,67);
         m3w3 = new Wall(142,67,178,69);
@@ -61,10 +58,25 @@ public class MazeViewer extends Applet implements KeyListener
         m3w21 = new Wall(107,400,141,402);
         m3w22 = new Wall(734,6,737,437);
         m3w23 = new Wall(216,28,219,104);
-
+        m3w24 = new Wall(65, 474, 735, 476);
+        m3w25 = new Wall(289, 364, 294, 474);
+        m3w26 = new Wall(401,401, 403, 473);
+        m3w27 = new Wall(401,401, 585, 403);
+        m3w28 = new Wall(438, 404, 440, 435);
+        m3w29 = new Wall(475, 438, 695, 435);
+        m3w30 = new Wall(697, 364, 700, 473);
+        m3w31 = new Wall(623, 363, 625, 435);
+        m3w32 = new Wall(475, 365, 478, 400);
+        m3w33 = new Wall(512, 362, 622, 365);
+        m3w34 = new Wall(293, 400, 329, 402);
+        m3w35 = new Wall(512, 251, 515, 365);
+        m3w36 = new Wall(401, 325, 512, 328);
+        m3w37 = new Wall(549, 325, 551, 363);
+        
         Wall [] m3Walls = {m3w1, m3w2, m3w3, m3w4, m3w5, m3w6, m3w7, m3w8, m3w9, m3w10, 
                           m3w11, m3w12, m3w13, m3w14, m3w15, m3w16, m3w17, m3w18, m3w19, m3w20, 
-                          m3w21};
+                          m3w21, m3w22, m3w23, m3w24, m3w25, m3w26, m3w27, m3w28, m3w29, m3w30, m3w31, m3w32, 
+                          m3w33, m3w34, m3w35, m3w36, m3w37};
                           
         maze3 = new Maze(m3Walls,10,10,500,550,500,550,maze3Pic);
         
