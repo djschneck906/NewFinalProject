@@ -19,7 +19,8 @@ public class MazeViewer extends Applet implements KeyListener
     m3w11, m3w12, m3w13, m3w14, m3w15, m3w16, m3w17, m3w18, m3w19, m3w20, 
     m3w21, m3w22, m3w23, m3w24, m3w25, m3w26, m3w27, m3w28, m3w29, m3w30, 
     m3w31, m3w32, m3w33, m3w34, m3w35, m3w36, m3w37, m3w38, m3w39, m3w40, 
-    m3w41, m3w42, m3w43, m3w44, m3w45, m3w46, m3w47, m3w48, m3w49, m3w50;
+    m3w41, m3w42, m3w43, m3w44, m3w45, m3w46, m3w47, m3w48, m3w49, m3w50,
+    m3w51, m3w52, m3w53, m3w54, m3w55, m3w56, m3w57, m3w58, m3w59, m3w60;
     
     Maze maze1, maze2, maze3;
     Maze[] mazes;
@@ -80,11 +81,21 @@ public class MazeViewer extends Applet implements KeyListener
         m3w43 = new Wall(253, 326, 256, 439);
         m3w44 = new Wall(216, 363, 253, 365);
         m3w45 = new Wall(216, 363, 219, 399);
+        m3w46 = new Wall(586, 325, 734, 328);
+        m3w47 = new Wall(659, 328, 663, 399);
+        m3w48 = new Wall(586, 291, 589, 321);
+        m3w49 = new Wall(549, 288, 699, 291);
+        m3w50 = new Wall(696, 251, 700, 290);
+        m3w51 = new Wall(142, 67, 145, 181);
+        m3w52 = new Wall(142, 178, 289, 181);
+        m3w53 = new Wall(178, 180, 182, 292);
+        m3w54 = new Wall(105, 289, 182, 292);
         
         Wall [] m3Walls = {m3w1, m3w2, m3w3, m3w4, m3w5, m3w6, m3w7, m3w8, m3w9, m3w10, 
                           m3w11, m3w12, m3w13, m3w14, m3w15, m3w16, m3w17, m3w18, m3w19, m3w20, 
                           m3w21, m3w22, m3w23, m3w24, m3w25, m3w26, m3w27, m3w28, m3w29, m3w30, m3w31, m3w32, 
-                          m3w33, m3w34, m3w35, m3w36, m3w37, m3w38, m3w39, m3w40, m3w41, m3w42, m3w43, m3w44, m3w45};
+                          m3w33, m3w34, m3w35, m3w36, m3w37, m3w38, m3w39, m3w40, m3w41, m3w42, m3w43, m3w44, m3w45,
+                          m3w46, m3w47, m3w48, m3w49, m3w50, m3w51, m3w52, m3w53, m3w54};
                           
         maze3 = new Maze(m3Walls,10,10,500,550,500,550,maze3Pic);
         
