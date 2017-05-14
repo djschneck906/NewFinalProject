@@ -20,7 +20,9 @@ public class MazeViewer extends Applet implements KeyListener
     m3w21, m3w22, m3w23, m3w24, m3w25, m3w26, m3w27, m3w28, m3w29, m3w30, 
     m3w31, m3w32, m3w33, m3w34, m3w35, m3w36, m3w37, m3w38, m3w39, m3w40, 
     m3w41, m3w42, m3w43, m3w44, m3w45, m3w46, m3w47, m3w48, m3w49, m3w50,
-    m3w51, m3w52, m3w53, m3w54, m3w55, m3w56, m3w57, m3w58, m3w59, m3w60;
+    m3w51, m3w52, m3w53, m3w54, m3w55, m3w56, m3w57, m3w58, m3w59, m3w60,
+    m3w61, m3w62, m3w63, m3w64, m3w65, m3w66, m3w67, m3w68, m3w69, m3w70,
+    m3w71, m3w72, m3w73, m3w74, m3w75, m3w76, m3w77, m3w78, m3w79, m3w80;
     
     Maze maze1, maze2, maze3;
     Maze[] mazes;
@@ -90,12 +92,41 @@ public class MazeViewer extends Applet implements KeyListener
         m3w52 = new Wall(142, 178, 289, 181);
         m3w53 = new Wall(178, 180, 182, 292);
         m3w54 = new Wall(105, 289, 182, 292);
+        m3w55 = new Wall(182, 251, 253, 255);
+        m3w56 = new Wall(216, 255, 219, 328);
+        m3w57 = new Wall(179, 325, 219, 328);
+        m3w58 = new Wall(178, 104, 219, 107);
+        m3w59 = new Wall(179, 104, 184, 144);
+        m3w60 = new Wall(179, 143, 251, 145);
+        m3w61 = new Wall(253, 67, 257, 178);
+        m3w62 = new Wall(254, 325, 292, 330);
+        m3w63 = new Wall(289, 252, 292, 328);
+        m3w64 = new Wall(253, 289, 291, 292);
+        m3w65 = new Wall(290, 250, 331, 254);
+        m3w66 = new Wall(327, 104, 331, 253);
+        m3w67 = new Wall(216, 215, 328, 218);
+        m3w68 = new Wall(290, 140, 363, 144);
+        m3w69 = new Wall(364, 177, 367, 325);
+        m3w70 = new Wall(327, 289, 401, 292);
+        m3w71 = new Wall(363, 215, 550, 218);
+        m3w72 = new Wall(401, 251, 513, 255);
+        m3w73 = new Wall(437, 253, 440, 291);
+        m3w74 = new Wall(438, 289, 473, 292);
+        m3w75 = new Wall(400, 104, 404, 180);
+        m3w76 = new Wall(365, 104, 403, 106);
+        m3w77 = new Wall(364, 68, 366, 106);
+        m3w78 = new Wall(290, 67, 365, 70);
+        m3w79 = new Wall(290, 68, 293, 102);
+        m3w80 = new Wall(364, 177, 404, 181);
         
         Wall [] m3Walls = {m3w1, m3w2, m3w3, m3w4, m3w5, m3w6, m3w7, m3w8, m3w9, m3w10, 
                           m3w11, m3w12, m3w13, m3w14, m3w15, m3w16, m3w17, m3w18, m3w19, m3w20, 
                           m3w21, m3w22, m3w23, m3w24, m3w25, m3w26, m3w27, m3w28, m3w29, m3w30, m3w31, m3w32, 
-                          m3w33, m3w34, m3w35, m3w36, m3w37, m3w38, m3w39, m3w40, m3w41, m3w42, m3w43, m3w44, m3w45,
-                          m3w46, m3w47, m3w48, m3w49, m3w50, m3w51, m3w52, m3w53, m3w54};
+                          m3w33, m3w34, m3w35, m3w36, m3w37, m3w38, m3w39, m3w40, m3w41, m3w42, m3w43, m3w44, 
+                          m3w45, m3w46, m3w47, m3w48, m3w49, m3w50, m3w51, m3w52, m3w53, m3w54, m3w55, 
+                          m3w56, m3w57, m3w58, m3w59, m3w60, m3w61, m3w62, m3w63, m3w64, m3w65, m3w66, m3w67,
+                          m3w68, m3w69, m3w70, m3w71, m3w72, m3w73, m3w74, m3w75, m3w76, 
+                          m3w77, m3w78, m3w79, m3w80};
                           
         maze3 = new Maze(m3Walls,10,10,500,550,500,550,maze3Pic);
         

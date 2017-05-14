@@ -16,7 +16,7 @@ public class Bug
     {
         x = startX;
         y = startY;
-        speed = 3;
+        speed = 4;
     }
 
     public void moveX(int value)
