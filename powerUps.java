@@ -2,6 +2,8 @@ public class powerUps
 {
     // instance variables
     //private int modifier
+    
+    //INCOMPLETE
 
     /**
      * Default constructor for objects of class powerUps

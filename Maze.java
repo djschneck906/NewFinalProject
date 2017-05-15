@@ -63,31 +63,55 @@ public class Maze
         return walls;
     }
     
+    /**
+     * getStartX Method
+     * @return players starting X position for this maze object
+     */
     public int getStartX()
     {
         return startX;
     }
     
+    /**
+     * getStartY Method
+     * @return players starting Y position for this maze object
+     */
     public int getStartY()
     {
         return startY;
     }
     
+    /**
+     * getEndLeft Method
+     * @return the left x bound of the ending area of the maze object
+     */
     public int getEndLeft()
     {
         return endXLeft;
     }
     
+    /**
+     * getEndRight Method
+     * @return the right x bound of the ending area of the maze object
+     */
     public int getEndRight()
     {
         return endXRight;
     }
     
+    /**
+     * getEndTop Method
+     * @return the top y bound of the ending area of the maze object
+     */
     public int getEndTop()
     {
         return endYTop;
     }
     
+    /**
+     * getEndBottom Method
+     * @return the bottom y bound of the ending area of the maze object
+     */
     public int getEndBottom()
     {
         return endYBottom;

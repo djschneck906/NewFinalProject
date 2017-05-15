@@ -1,10 +1,7 @@
 
 
 /**
- * Write a description of class mazeNameGenerator here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * CLASS TO INTIALIZE WALL OBJECTS EASIER - UNNECESSARY FOR GAME
  */
 public class mazeNameGenerator
 {

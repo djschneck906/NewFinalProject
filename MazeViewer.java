@@ -11,10 +11,13 @@ import java.awt.event.*;
 public class MazeViewer extends Applet implements KeyListener 
 {
     private static final int APPLET_WIDTH = 800;
-    private static final int APPLET_HEIGHT = 500;
+    private static final int APPLET_HEIGHT = 500; //set window width
+    
     Image bugPic, maze1Pic, maze2Pic,maze3Pic, gameOverPic;
-    Bug hayes;
-    int level = 0;
+    Bug hayes; // initialize bug player and background images
+    
+    int level = 0; //INTIALIZE LEVEL
+    
     Wall m3w1, m3w2, m3w3, m3w4, m3w5, m3w6, m3w7, m3w8, m3w9, m3w10, 
     m3w11, m3w12, m3w13, m3w14, m3w15, m3w16, m3w17, m3w18, m3w19, m3w20, 
     m3w21, m3w22, m3w23, m3w24, m3w25, m3w26, m3w27, m3w28, m3w29, m3w30, 
@@ -23,11 +26,11 @@ public class MazeViewer extends Applet implements KeyListener
     m3w51, m3w52, m3w53, m3w54, m3w55, m3w56, m3w57, m3w58, m3w59, m3w60,
     m3w61, m3w62, m3w63, m3w64, m3w65, m3w66, m3w67, m3w68, m3w69, m3w70,
     m3w71, m3w72, m3w73, m3w74, m3w75, m3w76, m3w77, m3w78, m3w79, m3w80,
-    m3w81;
+    m3w81; // intialzie walls for the mazes
     
-    Maze maze1, maze2, maze3, gameOver;
-    Maze[] mazes;
-    Wall[] m1Walls,m2Walls,m3Walls,gameOverWalls;
+    Maze maze1, maze2, maze3, gameOver; // intialize maze objects
+    Maze[] mazes; // create array of mazes
+    Wall[] m1Walls,m2Walls,m3Walls,gameOverWalls; //create array of walls to be drawn
     
     /**
      * This method is the first thing to run and it runs automatically (only one time).
@@ -35,12 +38,12 @@ public class MazeViewer extends Applet implements KeyListener
      */
     public void init()
     {
-        setSize(APPLET_WIDTH,APPLET_HEIGHT);
-        bugPic = getImage(getDocumentBase(),("bugSprite.png"));               
-        maze3Pic = getImage(getDocumentBase(),("maze 3.png"));
-        gameOverPic = getImage(getDocumentBase(),("gameover.png"));
+        setSize(APPLET_WIDTH,APPLET_HEIGHT); // set applet size
+        bugPic = getImage(getDocumentBase(),("bugSprite.png")); //set bug pic as player image              
+        maze3Pic = getImage(getDocumentBase(),("maze 3.png")); // set maze 3 image as first image
+        gameOverPic = getImage(getDocumentBase(),("gameover.png")); // set game over pic
                 
-        m3w1 = new Wall(66,25,734,28);
+        m3w1 = new Wall(66,25,734,28); // INTIALIZING WALLS
         m3w2 = new Wall(105,28,108,67);
         m3w3 = new Wall(142,67,178,69);
         m3w4 = new Wall(105,104,108,177);
@@ -63,7 +66,7 @@ public class MazeViewer extends Applet implements KeyListener
         m3w21 = new Wall(107,400,141,402);
         m3w22 = new Wall(734,6,737,437);
         m3w23 = new Wall(216,28,219,104);
-        m3w24 = new Wall(65, 474, 735, 476);
+        m3w24 = new Wall(65, 474, 735, 476); // STILL MAKING WALLS
         m3w25 = new Wall(289, 364, 294, 474);
         m3w26 = new Wall(401,401, 403, 473);
         m3w27 = new Wall(401,401, 585, 403);
@@ -103,7 +106,7 @@ public class MazeViewer extends Applet implements KeyListener
         m3w61 = new Wall(253, 67, 257, 178);
         m3w62 = new Wall(254, 325, 292, 330);
         m3w63 = new Wall(289, 252, 292, 328);
-        m3w64 = new Wall(253, 289, 291, 292);
+        m3w64 = new Wall(253, 289, 291, 292); // MORE WALLS
         m3w65 = new Wall(290, 250, 331, 254);
         m3w66 = new Wall(327, 104, 331, 253);
         m3w67 = new Wall(216, 215, 328, 218);
@@ -120,7 +123,7 @@ public class MazeViewer extends Applet implements KeyListener
         m3w78 = new Wall(290, 67, 365, 70);
         m3w79 = new Wall(290, 68, 293, 102);
         m3w80 = new Wall(364, 177, 404, 181);
-        m3w81 = new Wall(775, 438, 696, 440);
+        m3w81 = new Wall(775, 438, 696, 440); // WALLS ON WALLS ON WALLS
         
         m3Walls = new Wall[] {m3w1, m3w2, m3w3, m3w4, m3w5, m3w6, m3w7, m3w8, m3w9, m3w10, 
                           m3w11, m3w12, m3w13, m3w14, m3w15, m3w16, m3w17, m3w18, m3w19, m3w20, 
@@ -129,48 +132,56 @@ public class MazeViewer extends Applet implements KeyListener
                           m3w45, m3w46, m3w47, m3w48, m3w49, m3w50, m3w51, m3w52, m3w53, m3w54, m3w55, 
                           m3w56, m3w57, m3w58, m3w59, m3w60, m3w61, m3w62, m3w63, m3w64, m3w65, m3w66, m3w67,
                           m3w68, m3w69, m3w70, m3w71, m3w72, m3w73, m3w74, m3w75, m3w76, 
-                          m3w77, m3w78, m3w79, m3w80,m3w81};
+                          m3w77, m3w78, m3w79, m3w80,m3w81}; // populate wall array to be drawn
                           
-        maze3 = new Maze(m3Walls,10,10,738,791,7,482,maze3Pic);
-        gameOver = new Maze(gameOverWalls,300,300,0,0,0,0,gameOverPic);
+        maze3 = new Maze(m3Walls,10,10,738,791,7,482,maze3Pic); // creates maze with proper walls
+        gameOver = new Maze(gameOverWalls,300,300,0,0,0,0,gameOverPic); // creates game over 'maze'
         
-        Wall m2w1 = new Wall(200,250,100,125);
-        Wall[] m2Walls = {m2w1};
-        maze2 = new Maze(m2Walls,100,100,500,550,500,550,maze2Pic);
+        Wall m2w1 = new Wall(200,250,100,125); // maze 2 array (not done)
+        Wall[] m2Walls = {m2w1}; // see above
+        maze2 = new Maze(m2Walls,100,100,500,550,500,550,maze2Pic); // see above
         
         //Maze maze3 = new Maze();
         
-        mazes = new Maze[]{maze3,gameOver,maze2};
+        mazes = new Maze[]{maze3,gameOver,maze2}; // populate maze array
         
-        addKeyListener(this);
-        setFocusable(true);
-        requestFocusInWindow();
-        hayes = new Bug (mazes[0].getStartX(), mazes[0].getStartX());
+        addKeyListener(this); // add key listener for movement
+        setFocusable(true); // for key listener
+        requestFocusInWindow(); // focus in applet
+        hayes = new Bug (mazes[0].getStartX(), mazes[0].getStartX()); // create player object
         
         //printTitleScreen();
         
     }
     
+    /**
+     * keyTyped method
+     * @param keyTyped event (not really used)
+     */
      public void keyTyped(KeyEvent e) {
-        return;
+        return; // return key pressed
     }
     
+    /**
+     * keyPressed method
+     * @param key event, calls move method of player to move acccording to key pressed
+     */
      public void keyPressed(KeyEvent e) {
         
-        if (hayes != null)
+        if (hayes != null) // as long as player exists
         {
-           switch (e.getKeyCode()) {
+           switch (e.getKeyCode()) { // movement / kay switch
                 case KeyEvent.VK_LEFT:
-                    hayes.moveX(-hayes.getSpeed());
+                    hayes.moveX(-hayes.getSpeed()); // move left if left key pressed
                     break;
                 case KeyEvent.VK_RIGHT:
-                    hayes.moveX(hayes.getSpeed());
+                    hayes.moveX(hayes.getSpeed()); // move right if right key pressed
                     break;
                 case KeyEvent.VK_DOWN:
-                    hayes.moveY(hayes.getSpeed());
+                    hayes.moveY(hayes.getSpeed()); // move down if down key pressed
                     break;
                 case KeyEvent.VK_UP:
-                    hayes.moveY(-hayes.getSpeed());
+                    hayes.moveY(-hayes.getSpeed()); // move up if up key pressed
                     break;
            }
         }
@@ -181,11 +192,15 @@ public class MazeViewer extends Applet implements KeyListener
         //    Thread.currentThread().interrupt();   move like 3 times then the game stops moving at all
         // }
         
-        repaint();
+        repaint(); // repaint maze everytime player moves
     }
     
+    /**
+     * keyReleased method
+     * @param key event
+     */
     public void keyReleased(KeyEvent e) {
-        return;
+        return; // return if key released
     }
     
     
@@ -196,47 +211,56 @@ public class MazeViewer extends Applet implements KeyListener
      */
     public void paint(Graphics g)
     {
-        g.drawImage(mazes[level].getMazePic(),0,0,this);
-        g.drawImage(bugPic, hayes.getX(), hayes.getY(), this);
-        mazes[level].paintWalls(g);
+        g.drawImage(mazes[level].getMazePic(),0,0,this); // draw maze on applet frame
+        g.drawImage(bugPic, hayes.getX(), hayes.getY(), this); // draw player on applet frame
+        //mazes[level].paintWalls(g); // paint walls on applet frame
 
-        if(checkCollision(mazes[level]))
+        if(checkCollision(mazes[level])) // if collision is true
         {
-            hayes.setX(mazes[level].getStartX());
+            hayes.setX(mazes[level].getStartX()); // send player back to starting position
             hayes.setY(mazes[level].getStartY());
         }
         
-        if (checkCompletion(mazes[level]))
+        if (checkCompletion(mazes[level])) // if complete is true
         {
-            level+=1;
-            hayes.setX(mazes[level].getStartX());
+            level+=1; // increase level
+            hayes.setX(mazes[level].getStartX()); // set player back to start
             hayes.setY(mazes[level].getStartY());
         }        
         
     }
-
+    
+    /**
+     * checkCollsion method
+     * @param maze object
+     * @return boolean if player has hit a wall or not
+     */
     public boolean checkCollision(Maze m)
     {
-        Wall[] walls = m.getWalls();
+        Wall[] walls = m.getWalls(); // get walls of current maze
         
-        for (Wall obsticle : walls)
+        for (Wall obsticle : walls) // go through array of walls
         {
             if (hayes.getX()+11 >= obsticle.getLeft() && hayes.getX()+11 <= obsticle.getRight() 
                 && hayes.getY()+12>= obsticle.getTop() && hayes.getY()+12 <= obsticle.getBottom())
-                {
+                { // if player is in same position as any wall, return true (+11 and 12 so compare point is center of player
                     return true;
                 }
         }
         
-        return false;
+        return false; // otherwise return false
     }
     
-    
+    /**
+     * checkCompletion method
+     * @param maze object
+     * @return boolean if maze is complete or not
+     */
     public boolean checkCompletion(Maze m)
     {
         if (hayes.getX() > m.getEndLeft() && hayes.getX() < m.getEndRight() 
                 && hayes.getY()> m.getEndTop() && hayes.getY() < m.getEndBottom())
-                {
+                { // if player location is same as ending area of maze, return true
                     return true;
                 }
         
