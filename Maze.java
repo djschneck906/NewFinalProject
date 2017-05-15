@@ -10,7 +10,7 @@ public class Maze
     int startX;
     int startY;
     int endXLeft;
-    int endXRight;
+    int endXRight;  //initialize variables
     int endYTop;
     int endYBottom;
     Image mazePic;
@@ -30,22 +30,34 @@ public class Maze
         mazePic = pic;
     }
     
+    /**
+     * getMazePic method
+     * @return image of the maze to load into graphic
+     */
     public Image getMazePic()
     {
         return mazePic;
     }
     
+    /**
+     * paintWalls method
+     * paints the walls of the maze as rectangles onto graphics as red rectangle objects
+     */
     public void paintWalls(Graphics g)
     {
-        for (Wall obsticle : walls)
+        for (Wall obsticle : walls) //goes through array of wall objects
         {
-            g.setColor(Color.red);
-            g.fillRect(obsticle.getLeft(),obsticle.getTop(),
-                       obsticle.getRight()-obsticle.getLeft(), 
+            g.setColor(Color.red); // sets wall color to red
+            g.fillRect(obsticle.getLeft(),obsticle.getTop(), // draws a rectangle with the same
+                       obsticle.getRight()-obsticle.getLeft(), //dimensions as the wall object
                        obsticle.getBottom()-obsticle.getTop());
         }
     }
     
+    /**
+     * getWalls method
+     * @return array of Wall objects
+     */
     public Wall[] getWalls()
     {
         return walls;

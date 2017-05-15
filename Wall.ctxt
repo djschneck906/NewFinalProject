@@ -1,13 +1,17 @@
 #BlueJ class context
-comment0.params=left\ right\ top\ bottom
+comment0.params=left\ top\ right\ bottom
 comment0.target=Wall(int,\ int,\ int,\ int)
 comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Wall\r\n
 comment1.params=
 comment1.target=int\ getLeft()
+comment1.text=\r\n\ getLeft\ method\r\n\ @return\ left\ x\ coord\r\n
 comment2.params=
 comment2.target=int\ getRight()
+comment2.text=\r\n\ getRight\ method\r\n\ @return\ right\ x\ coord\r\n
 comment3.params=
 comment3.target=int\ getTop()
+comment3.text=\r\n\ getTop\ method\r\n\ @return\ top\ y\ coord\r\n
 comment4.params=
 comment4.target=int\ getBottom()
+comment4.text=\r\n\ getBottom\ method\r\n\ @return\ bottom\ y\ coord\r\n
 numComments=5
