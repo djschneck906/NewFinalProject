@@ -41,8 +41,11 @@ public class MazeViewer extends Applet implements KeyListener
         setSize(APPLET_WIDTH,APPLET_HEIGHT); // set applet size
         bugPic = getImage(getDocumentBase(),("bugSprite.png")); //set bug pic as player image              
         maze3Pic = getImage(getDocumentBase(),("maze 3.png")); // set maze 3 image as first image
+        maze2Pic = getImage(getDocumentBase(),("maze 2.png")); // set maze 2 image as second image
         gameOverPic = getImage(getDocumentBase(),("gameover.png")); // set game over pic
-                
+         
+        // MAZE 3 STUFF
+        
         m3w1 = new Wall(66,25,734,28); // INTIALIZING WALLS
         m3w2 = new Wall(105,28,108,67);
         m3w3 = new Wall(142,67,178,69);
@@ -123,7 +126,8 @@ public class MazeViewer extends Applet implements KeyListener
         m3w78 = new Wall(290, 67, 365, 70);
         m3w79 = new Wall(290, 68, 293, 102);
         m3w80 = new Wall(364, 177, 404, 181);
-        m3w81 = new Wall(775, 438, 696, 440); // WALLS ON WALLS ON WALLS
+        m3w81 = new Wall(775, 438, 696, 440);
+        Wall m3w82 = new Wall(476, 437, 696, 440);// WALLS ON WALLS ON WALLS
         
         m3Walls = new Wall[] {m3w1, m3w2, m3w3, m3w4, m3w5, m3w6, m3w7, m3w8, m3w9, m3w10, 
                           m3w11, m3w12, m3w13, m3w14, m3w15, m3w16, m3w17, m3w18, m3w19, m3w20, 
@@ -132,18 +136,51 @@ public class MazeViewer extends Applet implements KeyListener
                           m3w45, m3w46, m3w47, m3w48, m3w49, m3w50, m3w51, m3w52, m3w53, m3w54, m3w55, 
                           m3w56, m3w57, m3w58, m3w59, m3w60, m3w61, m3w62, m3w63, m3w64, m3w65, m3w66, m3w67,
                           m3w68, m3w69, m3w70, m3w71, m3w72, m3w73, m3w74, m3w75, m3w76, 
-                          m3w77, m3w78, m3w79, m3w80,m3w81}; // populate wall array to be drawn
+                          m3w77, m3w78, m3w79, m3w80,m3w81, m3w82}; // populate wall array to be drawn
                           
         maze3 = new Maze(m3Walls,10,10,738,791,7,482,maze3Pic); // creates maze with proper walls
         gameOver = new Maze(gameOverWalls,300,300,0,0,0,0,gameOverPic); // creates game over 'maze'
         
-        Wall m2w1 = new Wall(200,250,100,125); // maze 2 array (not done)
-        Wall[] m2Walls = {m2w1}; // see above
-        maze2 = new Maze(m2Walls,100,100,500,550,500,550,maze2Pic); // see above
+        /* MAZE 2 STUFF */
         
-        //Maze maze3 = new Maze();
+        Wall m2w1 = new Wall(8, 8, 787, 12); // maze 2 walls
+        Wall m2w2 = new Wall(81, 11, 91, 258);
+        Wall m2w3 = new Wall(81, 11, 91, 258);
+        Wall m2w4 = new Wall(81, 322, 92, 489);
+        Wall m2w5 = new Wall(8, 8, 12, 490);
+        Wall m2w6 = new Wall(8, 486, 788, 489);
+        Wall m2w7 = new Wall(702, 9, 712, 489);
+        Wall m2w8 = new Wall(784, 9, 788, 490);
+        Wall m2w9 = new Wall(90, 36, 702, 45);
+        Wall m2w10 = new Wall(92, 461, 702, 471);
+        Wall m2w11 = new Wall(154, 46, 160, 257);
+        Wall m2w12 = new Wall(155, 251, 230, 256);
+        Wall m2w13 = new Wall(154, 321, 160, 397);
+        Wall m2w14 = new Wall(155, 321, 294, 326);
+        Wall m2w15 = new Wall(224, 391, 229, 465);
+        Wall m2w16 = new Wall(292, 392, 368, 397);
+        Wall m2w17 = new Wall(363, 392, 366, 465);
+        Wall m2w18 = new Wall(292, 109, 297, 396);
+        Wall m2w19 = new Wall(361, 110, 368, 323);
+        Wall m2w20 = new Wall(363, 180, 640, 186);
+        Wall m2w21 = new Wall(634, 110, 639, 256);
+        Wall m2w22 = new Wall(496, 111, 501, 185);
+        Wall m2w23 = new Wall(362, 322, 431, 326);
+        Wall m2w24 = new Wall(566, 251, 639, 256);
+        Wall m2w25 = new Wall(427, 251, 432, 396);
+        Wall m2w26 = new Wall(427, 392, 639, 397);
+       // Wall m2w27 = new Wall();
         
-        mazes = new Maze[]{maze3,gameOver,maze2}; // populate maze array
+        
+        Wall[] m2Walls = {m2w1, m2w2, m2w3, m2w4, m2w5, m2w6, m2w7, m2w8, m2w8, m2w9, 
+                m2w10, m2w11, m2w12, m2w13, m2w14, m2w15, m2w16, m2w17,
+                 m2w18, m2w19, m2w20, m2w21, m2w22, m2w23, m2w24, m2w25, m2w26}; // walls array for maze 2
+        
+        maze2 = new Maze(m2Walls, 24, 26, 375, 421, 250, 315, maze2Pic); // see above
+        
+        // OTHER MAZE STUFF
+        
+        mazes = new Maze[]{maze2, maze3, gameOver}; // populate maze array
         
         addKeyListener(this); // add key listener for movement
         setFocusable(true); // for key listener
@@ -213,7 +250,7 @@ public class MazeViewer extends Applet implements KeyListener
     {
         g.drawImage(mazes[level].getMazePic(),0,0,this); // draw maze on applet frame
         g.drawImage(bugPic, hayes.getX(), hayes.getY(), this); // draw player on applet frame
-        //mazes[level].paintWalls(g); // paint walls on applet frame
+        mazes[level].paintWalls(g); // paint walls on applet frame
 
         if(checkCollision(mazes[level])) // if collision is true
         {
