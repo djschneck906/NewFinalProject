@@ -294,7 +294,7 @@ public class MazeViewer extends Applet implements KeyListener
                 { // if player's LEFT-MOST TOP PIXEL is in same position as any wall, return true (+11 and 12 so compare point is center of player
                     return true;
                 }    
-            else if (hayes.getX()+22 >= obsticle.getLeft() && hayes.getX()+22 <= obsticle.getRight() 
+            else if (hayes.getX()+25 >= obsticle.getLeft() && hayes.getX()+25 <= obsticle.getRight() 
                 && hayes.getY()+23 >= obsticle.getTop() && hayes.getY()+23 <= obsticle.getBottom())
                 { // if player's RIGHT-MOST BOTTOM PIXEL is in same position as any wall, return true (+11 and 12 so compare point is center of player
                     return true;
