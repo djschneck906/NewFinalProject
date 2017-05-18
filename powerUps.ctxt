@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.params=modifierSpeed
-comment0.target=powerUps(int)
-comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ powerUps\r\n
-comment1.params=hayes
-comment1.target=void\ changeSpeed(Bug)
-numComments=2
