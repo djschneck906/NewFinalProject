@@ -169,12 +169,18 @@ public class MazeViewer extends Applet implements KeyListener
         Wall m2w24 = new Wall(566, 251, 639, 256);
         Wall m2w25 = new Wall(427, 251, 432, 396);
         Wall m2w26 = new Wall(427, 392, 639, 397);
-       // Wall m2w27 = new Wall();
+        Wall m2w27 = new Wall(223, 110, 226, 185);
+        Wall m2w28 = new Wall(223, 110, 297, 115);
+        Wall m2w29 = new Wall(430, 44, 435, 115);
+        Wall m2w30 = new Wall(564, 43, 570, 115);
+        Wall m2w31 = new Wall(499, 185, 504, 325);
+        Wall m2w32 = new Wall(499, 320, 700, 326);
         
         
         Wall[] m2Walls = {m2w1, m2w2, m2w3, m2w4, m2w5, m2w6, m2w7, m2w8, m2w8, m2w9, 
                 m2w10, m2w11, m2w12, m2w13, m2w14, m2w15, m2w16, m2w17,
-                 m2w18, m2w19, m2w20, m2w21, m2w22, m2w23, m2w24, m2w25, m2w26}; // walls array for maze 2
+                 m2w18, m2w19, m2w20, m2w21, m2w22, m2w23, m2w24, m2w25, m2w26,
+                 m2w27, m2w28, m2w29, m2w30, m2w31, m2w32}; // walls array for maze 2
         
         maze2 = new Maze(m2Walls, 24, 26, 375, 421, 250, 315, maze2Pic); // see above
         
@@ -250,7 +256,7 @@ public class MazeViewer extends Applet implements KeyListener
     {
         g.drawImage(mazes[level].getMazePic(),0,0,this); // draw maze on applet frame
         g.drawImage(bugPic, hayes.getX(), hayes.getY(), this); // draw player on applet frame
-        mazes[level].paintWalls(g); // paint walls on applet frame
+        //mazes[level].paintWalls(g); // paint walls on applet frame
 
         if(checkCollision(mazes[level])) // if collision is true
         {
