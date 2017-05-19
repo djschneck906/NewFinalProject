@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.Graphics;
 import java.applet.*;
 import java.awt.event.*;
+import java.awt.Rectangle;
+import java.awt.*;
 
 
 /**
@@ -32,6 +34,12 @@ public class MazeViewer extends Applet implements KeyListener
     Maze[] mazes; // create array of mazes
     Wall[] m1Walls,m2Walls,m3Walls,gameOverWalls; //create array of walls to be drawn
     
+    int r = 40;
+    int g = 0;
+    int b = 40; // setting up color for changing game over screen
+    Color backgroundC = new Color(r, g, b);
+   int flag = 0;
+    
     /**
      * This method is the first thing to run and it runs automatically (only one time).
      * init() sets up the applet, sets the hieght, and creates some objects to be used
@@ -39,6 +47,7 @@ public class MazeViewer extends Applet implements KeyListener
     public void init()
     {
         setSize(APPLET_WIDTH,APPLET_HEIGHT); // set applet size
+        
         bugPic = getImage(getDocumentBase(),("bugSprite.png")); //set bug pic as player image              
         maze3Pic = getImage(getDocumentBase(),("maze 3.png")); // set maze 3 image as first image
         maze2Pic = getImage(getDocumentBase(),("maze 2.png")); // set maze 2 image as second image
@@ -186,7 +195,7 @@ public class MazeViewer extends Applet implements KeyListener
         
         // OTHER MAZE STUFF
         
-        mazes = new Maze[]{maze2, maze3, gameOver}; // populate maze array
+        mazes = new Maze[]{/*maze2, maze3,*/ gameOver}; // populate maze array
         
         addKeyListener(this); // add key listener for movement
         setFocusable(true); // for key listener
@@ -234,7 +243,22 @@ public class MazeViewer extends Applet implements KeyListener
         //} catch(InterruptedException ex) {         for some reason if you run this you can
         //    Thread.currentThread().interrupt();   move like 3 times then the game stops moving at all
         // }
-        
+        if (flag == 0 && r <= 245)
+        {
+            r+=10;
+            b+=10;
+            g+=10;
+            if (r > 245)
+                flag = 1;
+        }
+        else if (flag == 1 && g >= 10)
+        { r-=10;
+          b-=10;
+          g-=10;
+          if (g<10)
+            flag = 0;
+        }
+        backgroundC = new Color(r, g, b);
         repaint(); // repaint maze everytime player moves
     }
     
@@ -256,6 +280,8 @@ public class MazeViewer extends Applet implements KeyListener
     {
         g.drawImage(mazes[level].getMazePic(),0,0,this); // draw maze on applet frame
         g.drawImage(bugPic, hayes.getX(), hayes.getY(), this); // draw player on applet frame
+        setBackground(backgroundC);
+        g.setColor(backgroundC);
         //mazes[level].paintWalls(g); // paint walls on applet frame
 
         if(checkCollision(mazes[level])) // if collision is true
