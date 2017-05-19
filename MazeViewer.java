@@ -34,7 +34,7 @@ public class MazeViewer extends Applet implements KeyListener
     Maze[] mazes; // create array of mazes
     Wall[] m1Walls,m2Walls,m3Walls,gameOverWalls; //create array of walls to be drawn
     
-    int r = 40;
+    int r = 50;
     int g = 0;
     int b = 40; // setting up color for changing game over screen
     Color backgroundC = new Color(r, g, b);
@@ -195,7 +195,7 @@ public class MazeViewer extends Applet implements KeyListener
         
         // OTHER MAZE STUFF
         
-        mazes = new Maze[]{/*maze2, maze3,*/ gameOver}; // populate maze array
+        mazes = new Maze[]{maze2, maze3, gameOver}; // populate maze array
         
         addKeyListener(this); // add key listener for movement
         setFocusable(true); // for key listener
