@@ -195,7 +195,7 @@ public class MazeViewer extends Applet implements KeyListener
         
         // OTHER MAZE STUFF
         
-        mazes = new Maze[]{maze2, maze3, gameOver}; // populate maze array
+        mazes = new Maze[]{gameOver, maze2, maze3}; // populate maze array
         
         addKeyListener(this); // add key listener for movement
         setFocusable(true); // for key listener
@@ -245,20 +245,20 @@ public class MazeViewer extends Applet implements KeyListener
         // }
         if (flag == 0 && r <= 245)
         {
-            r+=10;
-            b+=10;
-            g+=10;
+            r+=5;
+            b+=5;
+            g+=5;
             if (r > 245)
                 flag = 1;
         }
-        else if (flag == 1 && g >= 10)
-        { r-=10;
-          b-=10;
-          g-=10;
+        else if (flag == 1 && g >= 5)
+        { r-=5;
+          b-=5;
+          g-=5;
           if (g<10)
             flag = 0;
         }
-        backgroundC = new Color(r, g, b);
+        backgroundC = new Color(r, g, b); // makes it so the background screen changes color everytime you move for the gameover screen
         repaint(); // repaint maze everytime player moves
     }
     
