@@ -195,7 +195,7 @@ public class MazeViewer extends Applet implements KeyListener
         
         // OTHER MAZE STUFF
         
-        mazes = new Maze[]{gameOver, maze2, maze3}; // populate maze array
+        mazes = new Maze[]{maze2, maze3, gameOver}; // populate maze array
         
         addKeyListener(this); // add key listener for movement
         setFocusable(true); // for key listener
